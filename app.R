@@ -1,3 +1,5 @@
+
+# Modified from Data Profesor, 
 ####################################
 # Data Professor                   #
 # http://youtube.com/dataprofessor #
@@ -18,30 +20,48 @@ library(shinythemes)
 # Define UI
 ui <- fluidPage(theme = shinytheme("cerulean"),
                 navbarPage(
-                  # theme = "cerulean",  # <--- To use a theme, uncomment this
-                  "My first app",
-                  tabPanel("Navbar 1",
+                  theme = "cerulean","My first app for fossils",),  # <--- To use a theme, uncomment this
+                  
+                  tabPanel("Fossil species",
                            sidebarPanel(
                              tags$h3("Input:"),
-                             textInput("txt1", "Given Name:", ""),
-                             textInput("txt2", "Surname:", ""),
+                             textInput("txt1", "Genus:", ""),
+                             textInput("txt2", "Species:", ""),
                              
                            ), # sidebarPanel
                            mainPanel(
-                             h1("Header 1"),
+                             h1("Fossils"),
                              
-                             h4("Output 1"),
+                             h4("The scientific name"),
                              verbatimTextOutput("txtout"),
                              
                            ) # mainPanel
                            
                   ), # Navbar 1, tabPanel
-                  tabPanel("Navbar 2", "This panel is intentionally left blank"),
-                  tabPanel("Navbar 3", "This panel is intentionally left blank")
+                  
+                
+                  
+                  tabPanel("Fossil localities",
+                           sidebarPanel(
+                             tags$h3("Input:"),
+                             textInput("txt1", "Location:", ""),
+                             textInput("txt2", "coordinates:", ""),
+                             
+                           ), # sidebarPanel
+                         
+                             mainPanel(
+                             h1("Fossils locations"),
+                             
+                             h4("Geography"),
+                             verbatimTextOutput("txtout"),
+                             
+                           ),
+                  
+                  
+                 
                   
                 ) # navbarPage
-) # fluidPage
-
+      )
 
 # Define server function  
 server <- function(input, output) {
